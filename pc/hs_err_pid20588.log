@@ -1,0 +1,175 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 510176 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:323), pid=20588, tid=19760
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_45-b18) (build 1.7.0_45-b18)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.45-b08 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000009329000):  JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=19760, stack(0x000000000a990000,0x000000000aa90000)]
+
+Stack: [0x000000000a990000,0x000000000aa90000]
+
+Current CompileTask:
+C2:    821   39             sun.misc.URLClassPath::getResource (74 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000009334000 JavaThread "Service Thread" daemon [_thread_blocked, id=19764, stack(0x000000000aa90000,0x000000000ab90000)]
+=>0x0000000009329000 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=19760, stack(0x000000000a990000,0x000000000aa90000)]
+  0x0000000009326800 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=19916, stack(0x000000000a890000,0x000000000a990000)]
+  0x0000000009325800 JavaThread "Attach Listener" daemon [_thread_blocked, id=19908, stack(0x000000000a790000,0x000000000a890000)]
+  0x0000000009323000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=19556, stack(0x000000000a690000,0x000000000a790000)]
+  0x00000000092dd800 JavaThread "Finalizer" daemon [_thread_blocked, id=19664, stack(0x000000000a590000,0x000000000a690000)]
+  0x00000000092d2000 JavaThread "Reference Handler" daemon [_thread_blocked, id=19520, stack(0x000000000a490000,0x000000000a590000)]
+  0x000000000183d800 JavaThread "main" [_thread_in_Java, id=11852, stack(0x0000000003380000,0x0000000003480000)]
+
+Other Threads:
+  0x00000000092d0000 VMThread [stack: 0x000000000a390000,0x000000000a490000] [id=19560]
+  0x0000000009346000 WatcherThread [stack: 0x000000000ab90000,0x000000000ac90000] [id=19912]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 18944K, used 12959K [0x00000000eb300000, 0x00000000ec800000, 0x0000000100000000)
+  eden space 16384K, 79% used [0x00000000eb300000,0x00000000ebfa7cc0,0x00000000ec300000)
+  from space 2560K, 0% used [0x00000000ec580000,0x00000000ec580000,0x00000000ec800000)
+  to   space 2560K, 0% used [0x00000000ec300000,0x00000000ec300000,0x00000000ec580000)
+ ParOldGen       total 42496K, used 0K [0x00000000c1a00000, 0x00000000c4380000, 0x00000000eb300000)
+  object space 42496K, 0% used [0x00000000c1a00000,0x00000000c1a00000,0x00000000c4380000)
+ PSPermGen       total 21504K, used 5926K [0x00000000bc800000, 0x00000000bdd00000, 0x00000000c1a00000)
+  object space 21504K, 27% used [0x00000000bc800000,0x00000000bcdc9b08,0x00000000bdd00000)
+
+Card table byte_map: [0x0000000006640000,0x0000000006860000] byte_map_base: 0x000000000605c000
+
+Polling page: 0x0000000000ff0000
+
+Code Cache  [0x0000000003580000, 0x00000000037f0000, 0x0000000006580000)
+ total_blobs=281 nmethods=38 adapters=196 free_code_cache=48661Kb largest_free_block=49807616
+
+Compilation events (10 events):
+Event: 0.506 Thread 0x0000000009329000   35             java.lang.Math::min (11 bytes)
+Event: 0.506 Thread 0x0000000009329000 nmethod 35 0x00000000035ec990 code [0x00000000035ecac0, 0x00000000035ecb18]
+Event: 0.632 Thread 0x0000000009326800   36             sun.nio.cs.UTF_8$Decoder::decode (640 bytes)
+Event: 0.650 Thread 0x0000000009326800 nmethod 36 0x00000000035fc750 code [0x00000000035fca00, 0x00000000035fd750]
+Event: 0.746 Thread 0x0000000009329000   37             java.util.ArrayList::size (5 bytes)
+Event: 0.746 Thread 0x0000000009329000 nmethod 37 0x00000000035fb050 code [0x00000000035fb180, 0x00000000035fb1d8]
+Event: 0.747 Thread 0x0000000009326800   38  s!         sun.misc.URLClassPath::getLoader (154 bytes)
+Event: 0.760 Thread 0x0000000009326800 nmethod 38 0x00000000035fe850 code [0x00000000035fea00, 0x00000000035ff7e0]
+Event: 0.778 Thread 0x0000000009329000   39             sun.misc.URLClassPath::getResource (74 bytes)
+Event: 0.794 Thread 0x0000000009326800   40   !         sun.misc.URLClassPath$JarLoader::getResource (91 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 0.794 Thread 0x000000000183d800 Threw 0x00000000ebf69450 at C:\re\jdk7u45\229\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 0.794 Thread 0x000000000183d800 Threw 0x00000000ebf69b10 at C:\re\jdk7u45\229\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 0.796 Thread 0x000000000183d800 Threw 0x00000000ebf6f748 at C:\re\jdk7u45\229\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 0.796 Thread 0x000000000183d800 Threw 0x00000000ebf6fde8 at C:\re\jdk7u45\229\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 0.799 Thread 0x000000000183d800 Threw 0x00000000ebf75b80 at C:\re\jdk7u45\229\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 0.799 Thread 0x000000000183d800 Threw 0x00000000ebf76220 at C:\re\jdk7u45\229\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 0.800 Thread 0x000000000183d800 Threw 0x00000000ebf7caf8 at C:\re\jdk7u45\229\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 0.800 Thread 0x000000000183d800 Threw 0x00000000ebf7d228 at C:\re\jdk7u45\229\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 0.807 Thread 0x000000000183d800 Threw 0x00000000ebf84cb0 at C:\re\jdk7u45\229\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 0.807 Thread 0x000000000183d800 Threw 0x00000000ebf85350 at C:\re\jdk7u45\229\hotspot\src\share\vm\prims\jvm.cpp:1244
+
+Events (10 events):
+Event: 0.794 loading class 0x000000000b07bdb0
+Event: 0.794 loading class 0x000000000b07bdb0 done
+Event: 0.796 loading class 0x000000000b07cab0
+Event: 0.796 loading class 0x000000000b07cab0 done
+Event: 0.799 loading class 0x000000000b07b730
+Event: 0.799 loading class 0x000000000b07b730 done
+Event: 0.800 loading class 0x000000000b06e160
+Event: 0.800 loading class 0x000000000b06e160 done
+Event: 0.807 loading class 0x000000000b07c570
+Event: 0.807 loading class 0x000000000b07c570 done
+
+
+Dynamic libraries:
+0x00007ff713250000 - 0x00007ff713283000 	C:\Users\zhang\AppData\Local\MyEclipse 2015\binary\com.sun.java.jdk7.win32.x86_64_1.7.0.u45\bin\javaw.exe
+0x00007ff9b5530000 - 0x00007ff9b5701000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ff9b4ec0000 - 0x00007ff9b4f6b000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ff9b2660000 - 0x00007ff9b287d000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ff9b2980000 - 0x00007ff9b2a22000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ff9b4e10000 - 0x00007ff9b4eae000 	C:\Windows\System32\msvcrt.dll
+0x00007ff9b4960000 - 0x00007ff9b49b9000 	C:\Windows\System32\sechost.dll
+0x00007ff9b4f70000 - 0x00007ff9b5091000 	C:\Windows\System32\RPCRT4.dll
+0x00007ff9b5360000 - 0x00007ff9b54c5000 	C:\Windows\System32\USER32.dll
+0x00007ff9b2880000 - 0x00007ff9b289e000 	C:\Windows\System32\win32u.dll
+0x00007ff9b51e0000 - 0x00007ff9b5214000 	C:\Windows\System32\GDI32.dll
+0x00007ff9b24d0000 - 0x00007ff9b2652000 	C:\Windows\System32\gdi32full.dll
+0x00007ff9aa480000 - 0x00007ff9aa6fa000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.14393.953_none_42151e83c686086b\COMCTL32.dll
+0x00007ff9b2d90000 - 0x00007ff9b3058000 	C:\Windows\System32\combase.dll
+0x00007ff9b2330000 - 0x00007ff9b2425000 	C:\Windows\System32\ucrtbase.dll
+0x00007ff9b20d0000 - 0x00007ff9b213a000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ff9b51b0000 - 0x00007ff9b51de000 	C:\Windows\System32\IMM32.DLL
+0x00000000542b0000 - 0x0000000054382000 	C:\Users\zhang\AppData\Local\MyEclipse 2015\binary\com.sun.java.jdk7.win32.x86_64_1.7.0.u45\jre\bin\msvcr100.dll
+0x00000000532d0000 - 0x0000000053a99000 	C:\Users\zhang\AppData\Local\MyEclipse 2015\binary\com.sun.java.jdk7.win32.x86_64_1.7.0.u45\jre\bin\server\jvm.dll
+0x00007ff9b2300000 - 0x00007ff9b2323000 	C:\Windows\System32\WINMM.dll
+0x00007ff9b1790000 - 0x00007ff9b17bb000 	C:\Windows\System32\WINMMBASE.dll
+0x00007ff9b2080000 - 0x00007ff9b20c2000 	C:\Windows\System32\cfgmgr32.dll
+0x00007ff9b4eb0000 - 0x00007ff9b4eb8000 	C:\Windows\System32\PSAPI.DLL
+0x00007ff9a56d0000 - 0x00007ff9a56d9000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ff9b5140000 - 0x00007ff9b51aa000 	C:\Windows\System32\WS2_32.dll
+0x00000000542a0000 - 0x00000000542af000 	C:\Users\zhang\AppData\Local\MyEclipse 2015\binary\com.sun.java.jdk7.win32.x86_64_1.7.0.u45\jre\bin\verify.dll
+0x0000000054270000 - 0x0000000054298000 	C:\Users\zhang\AppData\Local\MyEclipse 2015\binary\com.sun.java.jdk7.win32.x86_64_1.7.0.u45\jre\bin\java.dll
+0x0000000054250000 - 0x0000000054265000 	C:\Users\zhang\AppData\Local\MyEclipse 2015\binary\com.sun.java.jdk7.win32.x86_64_1.7.0.u45\jre\bin\zip.dll
+0x0000000054230000 - 0x0000000054249000 	C:\Users\zhang\AppData\Local\MyEclipse 2015\binary\com.sun.java.jdk7.win32.x86_64_1.7.0.u45\jre\bin\net.dll
+0x00007ff9b1060000 - 0x00007ff9b10bc000 	C:\Windows\system32\mswsock.dll
+0x0000000054210000 - 0x0000000054221000 	C:\Users\zhang\AppData\Local\MyEclipse 2015\binary\com.sun.java.jdk7.win32.x86_64_1.7.0.u45\jre\bin\nio.dll
+
+VM Arguments:
+jvm_args: -Dmaven.home=EMBEDDED -Dclassworlds.conf=F:\myeclipse2015\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5858617025152691543.tmp -Dfile.encoding=GBK 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher -B clean
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=E:\Studytools\Java\jdk1.7.0_80
+CLASSPATH=.;E:\Studytools\Java\jdk1.7.0_80\lib;E:\Studytools\Java\jdk1.7.0_80\lib\tools.jar;apache-tomcat-7.0.70\lib\servlet-api.jar;
+PATH=E:\Studytools\Java\jdk1.7.0_80\bin;H:\app\zhang\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;E:\Studytools\Java\jdk1.7.0_80\bin;E:\Studytools\Java\jdk1.7.0_80\jre\bin;E:\Studytools\mysql-5.6.32-winx64\bin;ATALINA_HOME1403126464b;ATALINA_HOME;/bin;C:\MinGW\bin;E:\Studytools\Java\jdk1.7.0_80\jre\bin;F:\apache-maven-3.3.9\bin;C:\Program Files (x86)\VisualSVN Server\bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\zhang\AppData\Local\Microsoft\WindowsApps;C:\ProgramData\zhang\atom\bin;C:\Program Files (x86)\SSH Communications Security\SSH Secure Shell;C:\Users\zhang\AppData\Local\GitHubDesktop\bin;C:\Users\zhang\AppData\Local\atom\bin
+USERNAME=zhang
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8 , 64 bit Build 9200 
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, erms, ht, tsc, tscinvbit
+
+Memory: 4k page, physical 4080636k(359392k free), swap 10109480k(3248k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (24.45-b08) for windows-amd64 JRE (1.7.0_45-b18), built on Oct  8 2013 05:47:22 by "java_re" with unknown MS VC++:1600
+
+time: Sun Nov 19 21:16:46 2017
+elapsed time: 0 seconds
+

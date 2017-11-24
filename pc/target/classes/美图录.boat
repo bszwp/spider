@@ -1,0 +1,5 @@
+textWebsite=http://www.meitulu.com
+textDepth=http://www.meitulu.com/item/.*
+textStoragePath=D:/spider
+textThread=4
+imgTag=img[src]
